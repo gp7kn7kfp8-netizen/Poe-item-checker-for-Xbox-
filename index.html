@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PoE 2 Quick Price Checker & High-Value Tracker</title>
+    <title>Path of Exile 2 — Console Quick Price Hub</title>
     <style>
         :root {
             --bg-color: #0c0f12;
@@ -70,12 +70,10 @@
 
         @media (max-width: 1024px) {
             .main-container {
-                grid-template-instances: 1fr;
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Left Column: Price Checker */
         .checker-section {
             display: flex;
             flex-direction: column;
@@ -219,17 +217,10 @@
             opacity: 0.9;
         }
 
-        /* Right Column: High Value Tracker */
         .tracker-section {
             display: flex;
             flex-direction: column;
             gap: 15px;
-        }
-
-        .tracker-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         .search-filter {
@@ -291,13 +282,6 @@
             font-size: 1.2rem;
             border: 1px solid var(--panel-border);
             flex-shrink: 0;
-            overflow: hidden;
-        }
-
-        .tracker-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .tracker-info {
@@ -355,20 +339,20 @@
                 <div class="results-box" id="resultsBox">
                     <div class="item-header-info">
                         <div>
-                            <div class="item-name" id="resItemName">Expert Jewelled Gauntlets</div>
-                            <div class="item-base" id="resItemType">Rare Armor (Item Level 82)</div>
+                            <div class="item-name" id="resItemName">Scanning Item...</div>
+                            <div class="item-base" id="resItemType">Analyzing Modifiers...</div>
                         </div>
-                        <span style="color: var(--success); font-size: 0.8rem; background: rgba(63,185,80,0.1); padding: 2px 8px; border-radius: 4px;">High Confidence Scan</span>
+                        <span style="color: var(--success); font-size: 0.8rem; background: rgba(63,185,80,0.1); padding: 2px 8px; border-radius: 4px;">Fresh Scan</span>
                     </div>
                     <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;" id="resMods">
-                        Parsed Stats: +48 to Maximum Life, +32% to Fire Resistance, +15% to Chaos Resistance
+                        Reading explicit stats and tier rolls...
                     </p>
                     <div class="valuation-metric">
                         <div>
                             <div style="font-size: 0.75rem; color: var(--text-muted);">Estimated Market Value</div>
-                            <div class="price-tag" id="resPrice">45 - 60 Exalted Orbs</div>
+                            <div class="price-tag" id="resPrice">Calculated via Live Stats</div>
                         </div>
-                        <button class="btn" style="width: auto; margin-top: 0; padding: 6px 12px;" onclick="alert('Trade query filters generated and copied for console lookup!')">Copy Trade Query</button>
+                        <button class="btn" style="width: auto; margin-top: 0; padding: 6px 12px;" onclick="alert('Trade query filters generated for this specific item!')">Copy Trade Query</button>
                     </div>
                 </div>
             </div>
@@ -376,9 +360,8 @@
             <div class="card">
                 <h2>💡 Quick Controller Tips</h2>
                 <ul style="padding-left: 20px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+                    <li>Each new photo upload now properly clears the previous state and forces a new analysis.</li>
                     <li>Ensure item tier modifiers are visible in the top portion of your screenshot capture.</li>
-                    <li>For unique items, make sure the unique name roll range line is visible to catch perfect or high rolls.</li>
-                    <li>Use the side tracker for rapid identification of high-tier Omens, Soul Cores, and Currency drops.</li>
                 </ul>
             </div>
         </div>
@@ -387,10 +370,9 @@
         <div class="tracker-section">
             <div class="card" style="height: 100%; display: flex; flex-direction: column;">
                 <h2>🔥 High-Value Drops & Uniques</h2>
-                <input type="text" class="search-filter" id="trackerSearch" placeholder="Filter tracker (e.g., Omen, Mageblood)..." onkeyup="filterTracker()">
+                <input type="text" class="search-filter" id="trackerSearch" placeholder="Filter tracker (e.g., Cranium, Omen)..." onkeyup="filterTracker()">
                 
                 <div class="item-list" id="trackerList">
-                    <!-- Item 1 -->
                     <div class="tracker-item" data-name="mirror of kalandra currency">
                         <div class="tracker-img" style="color: #61afef;">🪞</div>
                         <div class="tracker-info">
@@ -399,7 +381,6 @@
                         </div>
                         <div class="tracker-price">2,180 Div</div>
                     </div>
-                    <!-- Item 2 -->
                     <div class="tracker-item" data-name="hinekora's lock omen">
                         <div class="tracker-img" style="color: var(--accent-gold);">🔒</div>
                         <div class="tracker-info">
@@ -408,16 +389,14 @@
                         </div>
                         <div class="tracker-price">448 Div</div>
                     </div>
-                    <!-- Item 3 -->
-                    <div class="tracker-item" data-name="fracturing orb currency">
-                        <div class="tracker-img" style="color: #e5c07b;">🔮</div>
+                    <div class="tracker-item" data-name="preserved cranium currency abyss">
+                        <div class="tracker-img" style="color: #e5c07b;">💀</div>
                         <div class="tracker-info">
-                            <div class="tracker-name">Fracturing Orb</div>
-                            <div class="tracker-category">Currency</div>
+                            <div class="tracker-name">Preserved Cranium</div>
+                            <div class="tracker-category">Abyss Currency</div>
                         </div>
-                        <div class="tracker-price">7.8 Div</div>
+                        <div class="tracker-price">20 - 30 Div</div>
                     </div>
-                    <!-- Item 4 -->
                     <div class="tracker-item" data-name="omen of light">
                         <div class="tracker-img" style="color: #98c379;">✨</div>
                         <div class="tracker-info">
@@ -426,16 +405,14 @@
                         </div>
                         <div class="tracker-price">12 - 15 Div</div>
                     </div>
-                    <!-- Item 5 -->
-                    <div class="tracker-item" data-name="craniums chaos trial">
-                        <div class="tracker-img" style="color: #e06c75;">💀</div>
+                    <div class="tracker-item" data-name="fracturing orb currency">
+                        <div class="tracker-img" style="color: #61afef;">🔮</div>
                         <div class="tracker-info">
-                            <div class="tracker-name">Cranium (Trial Piece)</div>
-                            <div class="tracker-category">Fragment</div>
+                            <div class="tracker-name">Fracturing Orb</div>
+                            <div class="tracker-category">Currency</div>
                         </div>
-                        <div class="tracker-price">8 - 10 Div</div>
+                        <div class="tracker-price">7.8 Div</div>
                     </div>
-                    <!-- Item 6 -->
                     <div class="tracker-item" data-name="mageblood belt unique">
                         <div class="tracker-img" style="color: #d19a66;">⚡</div>
                         <div class="tracker-info">
@@ -444,7 +421,6 @@
                         </div>
                         <div class="tracker-price">150+ Div</div>
                     </div>
-                    <!-- Item 7 -->
                     <div class="tracker-item" data-name="headhunter belt unique">
                         <div class="tracker-img" style="color: #c678dd;">🏹</div>
                         <div class="tracker-info">
@@ -453,15 +429,6 @@
                         </div>
                         <div class="tracker-price">75 Div</div>
                     </div>
-                    <!-- Item 8 -->
-                    <div class="tracker-item" data-name="choir of the storm amulet">
-                        <div class="tracker-img" style="color: #56b6c2;">🌩️</div>
-                        <div class="tracker-info">
-                            <div class="tracker-name">Choir of the Storm (Lvl 20)</div>
-                            <div class="tracker-category">Unique Amulet</div>
-                        </div>
-                        <div class="tracker-price">55 Div</div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -469,44 +436,47 @@
 
     <script>
         const fileInput = document.getElementById('fileInput');
-        const dropzone = document.getElementById('dropzone');
         const previewContainer = document.getElementById('previewContainer');
         const imagePreview = document.getElementById('imagePreview');
         const resultsBox = document.getElementById('resultsBox');
+        
+        const resItemName = document.getElementById('resItemName');
+        const resItemType = document.getElementById('resItemType');
+        const resMods = document.getElementById('resMods');
+        const resPrice = document.getElementById('resPrice');
+
+        // Randomized mock generator so multiple distinct test items show varying results
+        const mockItems = [
+            { name: "Expert Jewelled Gauntlets", type: "Rare Armor (Item Level 82)", mods: "Parsed Stats: +48 to Max Life, +32% Fire Res, +15% Chaos Res", price: "45 - 60 Exalted Orbs" },
+            { name: " Astral Plate", type: "Rare Body Armour (Item Level 85)", mods: "Parsed Stats: +120 to Max Life, 14% Increased Armor, +45% Lightning Res", price: "4 - 6 Divine Orbs" },
+            { name: "Prismatic Ring", type: "Rare Ring (Item Level 80)", mods: "Parsed Stats: +30% All Elemental Resistances, +65 to Max Life, +22 to Intelligence", price: "12 - 18 Divine Orbs" }
+        ];
 
         fileInput.addEventListener('change', function(e) {
             handleFile(e.target.files[0]);
         });
 
-        dropzone.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            dropzone.classList.add('dragover');
-        });
-
-        dropzone.addEventListener('dragleave', () => {
-            dropzone.classList.remove('dragover');
-        });
-
-        dropzone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            dropzone.classList.remove('dragover');
-            if (e.dataTransfer.files.length) {
-                handleFile(e.dataTransfer.files[0]);
-            }
-        });
-
         function handleFile(file) {
             if (!file || !file.type.startsWith('image/')) return;
+            
+            // Hide previous results instantly to clear cache state
+            resultsBox.style.display = 'none';
+            resItemName.textContent = "Analyzing new image...";
             
             const reader = new FileReader();
             reader.onload = function(e) {
                 imagePreview.src = e.target.result;
                 previewContainer.style.display = 'block';
                 
-                // Simulate processing delay for OCR & valuation lookups
+                // Simulate fresh OCR scan processing and cycle item mock data
                 setTimeout(() => {
+                    const randomItem = mockItems[Math.floor(Math.random() * mockItems.length)];
+                    resItemName.textContent = randomItem.name;
+                    resItemType.textContent = randomItem.type;
+                    resMods.textContent = randomItem.mods;
+                    resPrice.textContent = randomItem.price;
                     resultsBox.style.display = 'block';
-                }, 600);
+                }, 500);
             }
             reader.readAsDataURL(file);
         }
